@@ -1,24 +1,47 @@
-'version_2.0
 Option Explicit
 
 ' =====================================================================
-' ENGINE: ABID__DateENGINE (v2.0 - Multi-Language Resource Loaded)
+' ENGINE: ABID__DateENGINE (v2.0)
 ' =====================================================================
 ' Global variables accessible from any other macro
 
 ' [1] Date Numbers
+' Bangla
 Public Abid_DEngine_BanglaDate_dayNum_bn As String
-Public Abid_DEngine_BanglaDate_dayNum_bn_pre As String ' <--- NEW: Contains day number with suffix
+Public Abid_DEngine_BanglaDate_dayNum_bn_pre As String
+Public Abid_DEngine_BanglaDate_dayNum_en As String
+Public Abid_DEngine_BanglaDate_dayNum_ar As String
+Public Abid_DEngine_BanglaDate_monthNum_bn As String
 Public Abid_DEngine_BanglaDate_monthNum_en As String
+Public Abid_DEngine_BanglaDate_monthNum_ar As String
+Public Abid_DEngine_BanglaDate_yearNum_bn As String
+Public Abid_DEngine_BanglaDate_yearNum_en As String
 Public Abid_DEngine_BanglaDate_yearNum_ar As String
 
+' English
 Public Abid_DEngine_EnglishDate_dayNum_bn As String
+Public Abid_DEngine_EnglishDate_dayNum_bn_pre As String
+Public Abid_DEngine_EnglishDate_dayNum_en As String
+Public Abid_DEngine_EnglishDate_dayNum_ar As String
+Public Abid_DEngine_EnglishDate_monthNum_bn As String
 Public Abid_DEngine_EnglishDate_monthNum_en As String
+Public Abid_DEngine_EnglishDate_monthNum_ar As String
+Public Abid_DEngine_EnglishDate_yearNum_bn As String
+Public Abid_DEngine_EnglishDate_yearNum_en As String
 Public Abid_DEngine_EnglishDate_yearNum_ar As String
 
+' Arabic
 Public Abid_DEngine_ArabicDate_dayNum_bn As String
+Public Abid_DEngine_ArabicDate_dayNum_bn_pre As String
+Public Abid_DEngine_ArabicDate_dayNum_en As String
+Public Abid_DEngine_ArabicDate_dayNum_ar As String
+Public Abid_DEngine_ArabicDate_monthNum_bn As String
 Public Abid_DEngine_ArabicDate_monthNum_en As String
+Public Abid_DEngine_ArabicDate_monthNum_ar As String
+Public Abid_DEngine_ArabicDate_yearNum_bn As String
+Public Abid_DEngine_ArabicDate_yearNum_en As String
 Public Abid_DEngine_ArabicDate_yearNum_ar As String
+
 
 ' [2] Week Names
 Public Abid_DEngine_BanglaDate_weekName_bn As String
@@ -33,6 +56,7 @@ Public Abid_DEngine_ArabicDate_weekName_bn As String
 Public Abid_DEngine_ArabicDate_weekName_en As String
 Public Abid_DEngine_ArabicDate_weekName_ar As String
 
+
 ' [3] Month Names
 Public Abid_DEngine_BanglaDate_monthName_bn As String
 Public Abid_DEngine_BanglaDate_monthName_en As String
@@ -45,6 +69,7 @@ Public Abid_DEngine_EnglishDate_monthName_ar As String
 Public Abid_DEngine_ArabicDate_monthName_bn As String
 Public Abid_DEngine_ArabicDate_monthName_en As String
 Public Abid_DEngine_ArabicDate_monthName_ar As String
+
 
 ' [4] Eras
 Public Abid_DEngine_BanglaDate_Era_bn As String
@@ -161,35 +186,81 @@ Public Sub ABID__DateENGINE(ByVal InputDateStr As String)
     wDay = Weekday(dt, vbSunday)
 
     ' --- NUMBERS --- (1=BN, 2=EN, 3=AR)
-    Abid_DEngine_BanglaDate_dayNum_bn = ToLocalizedNum(CStr(bDay), 1, arrNums)
-    Abid_DEngine_BanglaDate_monthNum_en = ToLocalizedNum(CStr(bMonth), 2, arrNums)
-    Abid_DEngine_BanglaDate_yearNum_ar = ToLocalizedNum(CStr(bYear), 3, arrNums)
     
-    ' <--- NEW: BANGLA DATE SUFFIX LOGIC (লা, রা, ঠা, ই, শে) --->
+    ' [A] BANGLA DATE
+    Abid_DEngine_BanglaDate_dayNum_bn = ToLocalizedNum(CStr(bDay), 1, arrNums)
+    Abid_DEngine_BanglaDate_dayNum_en = ToLocalizedNum(CStr(bDay), 2, arrNums)
+    Abid_DEngine_BanglaDate_dayNum_ar = ToLocalizedNum(CStr(bDay), 3, arrNums)
+    
+    Abid_DEngine_BanglaDate_monthNum_bn = ToLocalizedNum(CStr(bMonth), 1, arrNums)
+    Abid_DEngine_BanglaDate_monthNum_en = ToLocalizedNum(CStr(bMonth), 2, arrNums)
+    Abid_DEngine_BanglaDate_monthNum_ar = ToLocalizedNum(CStr(bMonth), 3, arrNums)
+    
+    Abid_DEngine_BanglaDate_yearNum_bn = ToLocalizedNum(CStr(bYear), 1, arrNums)
+    Abid_DEngine_BanglaDate_yearNum_en = ToLocalizedNum(CStr(bYear), 2, arrNums)
+    Abid_DEngine_BanglaDate_yearNum_ar = ToLocalizedNum(CStr(bYear), 3, arrNums)
+
+    ' BANGLA DATE SUFFIX LOGIC
     Dim bSuffix As String
     Select Case bDay
-        Case 1
-            bSuffix = arrBPrefixes(1) ' লা
-        Case 2, 3
-            bSuffix = arrBPrefixes(2) ' রা
-        Case 4
-            bSuffix = arrBPrefixes(3) ' ঠা
-        Case 5 To 18
-            bSuffix = arrBPrefixes(4) ' ই
-        Case 19 To 31
-            bSuffix = arrBPrefixes(5) ' শে
-        Case Else
-            bSuffix = ""
+        Case 1: bSuffix = arrBPrefixes(1) ' লা
+        Case 2, 3: bSuffix = arrBPrefixes(2) ' রা
+        Case 4: bSuffix = arrBPrefixes(3) ' ঠা
+        Case 5 To 18: bSuffix = arrBPrefixes(4) ' ই
+        Case 19 To 31: bSuffix = arrBPrefixes(5) ' শে
+        Case Else: bSuffix = ""
     End Select
     Abid_DEngine_BanglaDate_dayNum_bn_pre = Abid_DEngine_BanglaDate_dayNum_bn & bSuffix
 
+    ' [B] ENGLISH DATE
     Abid_DEngine_EnglishDate_dayNum_bn = ToLocalizedNum(CStr(gDay), 1, arrNums)
+    Abid_DEngine_EnglishDate_dayNum_en = ToLocalizedNum(CStr(gDay), 2, arrNums)
+    Abid_DEngine_EnglishDate_dayNum_ar = ToLocalizedNum(CStr(gDay), 3, arrNums)
+    
+    Abid_DEngine_EnglishDate_monthNum_bn = ToLocalizedNum(CStr(gMonth), 1, arrNums)
     Abid_DEngine_EnglishDate_monthNum_en = ToLocalizedNum(CStr(gMonth), 2, arrNums)
+    Abid_DEngine_EnglishDate_monthNum_ar = ToLocalizedNum(CStr(gMonth), 3, arrNums)
+    
+    Abid_DEngine_EnglishDate_yearNum_bn = ToLocalizedNum(CStr(gYear), 1, arrNums)
+    Abid_DEngine_EnglishDate_yearNum_en = ToLocalizedNum(CStr(gYear), 2, arrNums)
     Abid_DEngine_EnglishDate_yearNum_ar = ToLocalizedNum(CStr(gYear), 3, arrNums)
 
+    ' ENGLISH DATE BANGLA SUFFIX LOGIC
+    Dim gSuffix As String
+    Select Case gDay
+        Case 1: gSuffix = arrBPrefixes(1)
+        Case 2, 3: gSuffix = arrBPrefixes(2)
+        Case 4: gSuffix = arrBPrefixes(3)
+        Case 5 To 18: gSuffix = arrBPrefixes(4)
+        Case 19 To 31: gSuffix = arrBPrefixes(5)
+        Case Else: gSuffix = ""
+    End Select
+    Abid_DEngine_EnglishDate_dayNum_bn_pre = Abid_DEngine_EnglishDate_dayNum_bn & gSuffix
+
+    ' [C] ARABIC DATE
     Abid_DEngine_ArabicDate_dayNum_bn = ToLocalizedNum(CStr(hDay), 1, arrNums)
+    Abid_DEngine_ArabicDate_dayNum_en = ToLocalizedNum(CStr(hDay), 2, arrNums)
+    Abid_DEngine_ArabicDate_dayNum_ar = ToLocalizedNum(CStr(hDay), 3, arrNums)
+    
+    Abid_DEngine_ArabicDate_monthNum_bn = ToLocalizedNum(CStr(hMonth), 1, arrNums)
     Abid_DEngine_ArabicDate_monthNum_en = ToLocalizedNum(CStr(hMonth), 2, arrNums)
+    Abid_DEngine_ArabicDate_monthNum_ar = ToLocalizedNum(CStr(hMonth), 3, arrNums)
+    
+    Abid_DEngine_ArabicDate_yearNum_bn = ToLocalizedNum(CStr(hYear), 1, arrNums)
+    Abid_DEngine_ArabicDate_yearNum_en = ToLocalizedNum(CStr(hYear), 2, arrNums)
     Abid_DEngine_ArabicDate_yearNum_ar = ToLocalizedNum(CStr(hYear), 3, arrNums)
+
+    ' ARABIC DATE BANGLA SUFFIX LOGIC
+    Dim hSuffix As String
+    Select Case hDay
+        Case 1: hSuffix = arrBPrefixes(1)
+        Case 2, 3: hSuffix = arrBPrefixes(2)
+        Case 4: hSuffix = arrBPrefixes(3)
+        Case 5 To 18: hSuffix = arrBPrefixes(4)
+        Case 19 To 30: hSuffix = arrBPrefixes(5) ' Hijri month caps out at 30 days usually
+        Case Else: hSuffix = ""
+    End Select
+    Abid_DEngine_ArabicDate_dayNum_bn_pre = Abid_DEngine_ArabicDate_dayNum_bn & hSuffix
 
     ' --- WEEK NAMES ---
     Abid_DEngine_BanglaDate_weekName_bn = arrWeeks(wDay, 1)
@@ -357,4 +428,5 @@ Private Function ToLocalizedNum(ByVal strNum As String, ByVal langIdx As Integer
     Next i
     ToLocalizedNum = strNum
 End Function
+
 ' copyright : Abid Al Jamee
