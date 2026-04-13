@@ -1,5 +1,5 @@
-# ABID Date Engine v2 Documentation
-# ABID তারিখ ইঞ্জিন v2 ডকুমেন্টেশন
+# ABID__DateENGINE v2.0 Documentation
+# আবিদ_তারিখইঞ্জিন v2.0 ডকুমেন্টেশন
 
 ---
 
@@ -35,7 +35,7 @@
 
 ## Overview
 
-**ABID Date Engine** is a powerful Microsoft Word VBA macro engine that provides comprehensive multi-calendar date conversion capabilities. It simultaneously converts dates between three calendar systems (Bengali, Gregorian, and Hijri) and provides localized output in three languages (Bengali, English, and Arabic).
+**ABID__DateENGINE** is a powerful Microsoft Word VBA macro engine that provides comprehensive multi-calendar date conversion capabilities. It simultaneously converts dates between three calendar systems (Bengali, Gregorian, and Hijri) and provides localized output in three languages (Bengali, English, and Arabic).
 
 ### Key Capabilities:
 - **Multi-Calendar Support**: Bangla Calendar (বাংলা সন), Gregorian Calendar, Hijri Calendar (হিজরি)
@@ -48,7 +48,7 @@
 
 ## সংক্ষিপ্ত বিবরণ
 
-**ABID তারিখ ইঞ্জিন** হলো একটি শক্তিশালী Microsoft Word VBA ম্যাক্রো ইঞ্জিন যা ব্যাপক বহু-ক্যালেন্ডার তারিখ রূপান্তর সুবিধা প্রদান করে। এটি একসাথে তিনটি ক্যালেন্ডার সিস্টেম (বাংলা, গ্রেগরিয়ান এবং হিজরি) এর মধ্যে তারিখ রূপান্তর করে এবং তিনটি ভাষায় (বাংলা, ইংরেজি এবং আরবি) স্থানীয়করণ আউটপুট প্রদান করে।
+**আবিদ_তারিখইঞ্জিন** হলো একটি শক্তিশালী Microsoft Word VBA ম্যাক্রো ইঞ্জিন যা ব্যাপক বহু-ক্যালেন্ডার তারিখ রূপান্তর সুবিধা প্রদান করে। এটি একসাথে তিনটি ক্যালেন্ডার সিস্টেম (বাংলা, গ্রেগরিয়ান এবং হিজরি) এর মধ্যে তারিখ রূপান্তর করে এবং তিনটি ভাষায় (বাংলা, ইংরেজি এবং আরবি) স্থানীয়করণ আউটপুট প্রদান করে।
 
 ### মূল সক্ষমতা:
 - **বহু-ক্যালেন্ডার সমর্থন**: বাংলা ক্যালেন্ডার (বাংলা সন), গ্রেগরিয়ান ক্যালেন্ডার, হিজরি ক্যালেন্ডার
