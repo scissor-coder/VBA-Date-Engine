@@ -1261,5 +1261,5 @@ Call ABID__DateENGINE("DD/MM/YYYY")
 
 *Last Updated: April 2024*  
 *Version: 2.0*  
-*Author: Abid Al Jamee*  
+*Author: [Abid Al Jamee](https://facebook.com/abidaljamee)*  
 *License: MIT*
