@@ -1,8 +1,8 @@
-'v2
+'version_2.0
 Option Explicit
 
 ' =====================================================================
-' ENGINE: ABID__DateENGINE (v3 - Multi-Language Resource Loaded)
+' ENGINE: ABID__DateENGINE (v2.0 - Multi-Language Resource Loaded)
 ' =====================================================================
 ' Global variables accessible from any other macro
 
@@ -357,3 +357,4 @@ Private Function ToLocalizedNum(ByVal strNum As String, ByVal langIdx As Integer
     Next i
     ToLocalizedNum = strNum
 End Function
+' copyright : Abid Al Jamee
