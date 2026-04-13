@@ -1648,4 +1648,4 @@ Abid_DEngine_ArabicDate_dayNum_ar & " " & Abid_DEngine_ArabicDate_monthName_ar &
 
 ---
 
-**End of Documentation | ডকুমেন্টেশন সমাপ্ত*
+**End of Documentation | ডকুমেন্টেশন সমাপ্ত**
